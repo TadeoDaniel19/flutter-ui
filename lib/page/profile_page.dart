@@ -25,23 +25,23 @@ class _ProfilePageState extends State<ProfilePage> {
           appBar: buildAppBar(context),
           body: ListView(
             physics: BouncingScrollPhysics(),
+            padding: EdgeInsets.all(16.0),
             children: [
               ProfileWidget(
                 imagePath: user.imagePath,
                 onClicked: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => EditProfilePage()),
+                    MaterialPageRoute(builder: (context) => ProfilePage()),
                   );
                 },
               ),
               const SizedBox(height: 24),
               buildName(user),
               const SizedBox(height: 24),
-              Center(child: buildUpgradeButton()),
               const SizedBox(height: 24),
               NumbersWidget(),
-              const SizedBox(height: 48),
               buildAbout(user),
+              Center(child: buildUpgradeButton()),
             ],
           ),
         ),
@@ -64,7 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
       );
 
   Widget buildUpgradeButton() => ButtonWidget(
-        text: 'Upgrade To PRO',
+        text: 'Follow',
         onClicked: () {},
       );
 
@@ -74,7 +74,7 @@ class _ProfilePageState extends State<ProfilePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'About',
+              '',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
